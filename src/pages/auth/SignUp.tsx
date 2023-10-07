@@ -1,4 +1,6 @@
+import GoogleLogin from "@leecheuk/react-google-login";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 // import { useToasts } from "react-toast-notifications";
 
 const SignUp: React.FC = () => {
@@ -82,6 +84,19 @@ const SignUp: React.FC = () => {
             Sign Up
           </button>
         </form>
+        <div className="mt-4 flex items-center justify-center">
+          <GoogleLogin
+            clientId="YOUR_GOOGLE_CLIENT_ID"
+            buttonText="Sign Up with Google"
+            // onSuccess={responseGoogle}
+            // onFailure={responseGoogle}
+            cookiePolicy={"single_host_origin"}
+          />
+        </div>
+        {/* Already have an account? Login link */}
+        <div className="mt-4 text-center">
+          Already have an account? <Link to="/login" className="text-indigo-500">Please login</Link>
+        </div>
       </div>
     </div>
   );
