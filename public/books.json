@@ -1,0 +1,34 @@
+[
+    {
+        "tittle": "Amader shada bari",
+        "author": "Humayon Ahamed",
+        "image": "",
+        "genre": "Novel",
+        "publication_date": "1996",
+        "comments": []
+    },
+    {
+        "tittle": "Ayna Ghor",
+        "author": "Humayon Ahamed",
+        "image": "",
+        "genre": "Novel",
+        "publication_date": "1992",
+        "comments": []
+    },
+    {
+        "tittle": "Komola kanter doptor",
+        "author": "Bankim chandra chattopaddhay",
+        "image": "",
+        "genre": "Literature",
+        "publication_date": "1875",
+        "comments": []
+    },
+    {
+        "tittle": "Sanchoyeta",
+        "author": "Rabindra nath Thakur",
+        "image": "",
+        "genre": "Poem",
+        "publication_date": "2016",
+        "comments": []
+    }
+]

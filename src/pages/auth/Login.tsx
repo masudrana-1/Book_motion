@@ -19,6 +19,11 @@ const Login: React.FC = () => {
     }
   };
 
+
+  const responseGoogle = (response: string) => {
+    console.log(response);
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center ">
       <div className="bg-white p-8 rounded-lg shadow-md w-80">
@@ -56,7 +61,7 @@ const Login: React.FC = () => {
             clientId="YOUR_GOOGLE_CLIENT_ID"
             buttonText="Sign Up with Google"
             // onSuccess={responseGoogle}
-            // onFailure={responseGoogle}
+            onFailure={responseGoogle}
             cookiePolicy={"single_host_origin"}
           />
         </div>
