@@ -1,40 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import { useGetBooksQuery } from "../../redux/bookApi/bookApi";
+import { IBooks } from "../../types/globaltypes";
+import Book from "./Book";
 
 const AllBooks = () => {
 
+// Redux RTK 
+const {data, isLoading, isError} = useGetBooksQuery(undefined)
 
-  const [data, setData] = useState(null);
+console.log(data?.data)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/book');
-        
-        // Parse the JSON data
-        const result = await response.json();
 
-        // Update the state with the fetched data
-        // console.log(result)
-        setData(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+if (isLoading) {
+  return <div>Loading...</div>;
+}
 
-    // Call the fetchData function
-    fetchData();
-  }, []); 
-  if (!data) {
-    return <div>Loading...</div>;
-  }
-
+if (isError) {
+  return <div>Error occurred while fetching data.</div>;
+}
 
   return (
-    <div>
-      {/* {
-        data.map()
-      } */}
-    </div>
+    <div className='my-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+              {
+                data?.data && data.data.map((book: IBooks)=> <Book
+                key={book._id}
+                _id= {book._id}
+                tittle={book.tittle}
+                author={book.author}
+                image={book.image}
+                publication_date={book.publication_date}
+                genre={book.genre}
+                />)
+              }
+            </div>
+        </div>
   );
 };
 
